@@ -1,0 +1,25 @@
+[package]
+name = "sort-it"
+version = "0.1.0"
+authors = ["Valdemar Høgsvig Lorenzen <valdemar.lorenzen@gmail.com>"]
+edition = "2018"
+description = "Various sorting algorithms"
+readme = "README.md"
+repository = "https://github.com/discobiscuit99/sort-it"
+license-file = "LICENSE"
+keywords = ["sorting", "algorithm", "tool"]
+categories = ["Algorithms"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[test]]
+name = "selection_sort_tests"
+
+[[test]]
+name = "bubble_sort_tests"
+
+[[test]]
+name = "merge_sort_tests"
+
+[dependencies]
+
