@@ -1,4 +1,4 @@
-# Sort It &ndash; Various sorting algorithms
+# SortIt &ndash; Various sorting algorithms
 
 This crate includes a bunch of sorting algorithms. As of now, only three algorithms have been implemented but rest assured, more are coming! 
 
