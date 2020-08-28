@@ -8,7 +8,7 @@ readme = "README.md"
 repository = "https://github.com/discobiscuit99/sort-it"
 license-file = "LICENSE"
 keywords = ["sorting", "algorithm", "tool"]
-categories = ["Algorithms"]
+categories = ["algorithms"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
