@@ -1,6 +1,6 @@
 [package]
 name = "sort-it"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Valdemar Høgsvig Lorenzen <valdemar.lorenzen@gmail.com>"]
 edition = "2018"
 description = "Various sorting algorithms"
