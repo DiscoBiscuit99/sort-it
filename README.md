@@ -11,7 +11,7 @@ There are going to be implemented options for having a list of lists returned co
 + [x] Selection sort
 + [x] Bubble sort
 + [x] Merge sort
-+ [ ] Insertion sort
++ [x] Insertion sort
 + [ ] Quicksort
 + [ ] Heapsort
 + [ ] Bogo sort
