@@ -1,6 +1,6 @@
 # SortIt &ndash; Various sorting algorithms
 
-This crate includes a bunch of sorting algorithms. As of now, only three algorithms have been implemented but rest assured, more are coming! 
+This crate includes a bunch of sorting algorithms. As of now, only four algorithms have been implemented but rest assured, more are coming! 
 
 A list of implemented algorithms can be found below.
 
@@ -12,17 +12,17 @@ There are going to be implemented options for having a list of lists returned co
 + [x] Bubble sort
 + [x] Merge sort
 + [x] Insertion sort
-+ [ ] Quicksort
-+ [ ] Heapsort
++ [ ] Quick sort
++ [ ] Heap sort
 + [ ] Bogo sort
 + [ ] Block sort
-+ [ ] Introsort
-+ [ ] Quadsort
-+ [ ] Timsort
-+ [ ] Cubesort
-+ [ ] Shellsort
++ [ ] Intro sort
++ [ ] Quad sort
++ [ ] Tim sort
++ [ ] Cube sort
++ [ ] Shell sort
 + [ ] Tree sort
-+ [ ] Smoothsort
++ [ ] Smooth sort
 + [ ] Tournament sort
 + [ ] Gnome sort
 
