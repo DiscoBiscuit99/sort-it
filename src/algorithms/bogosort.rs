@@ -31,8 +31,11 @@ impl<T> Bogosort<T> for Vec<T>
     where T: PartialEq + PartialOrd + Clone + Copy,
 {
     fn bogosort(&mut self) {
-        let mut rng = rand::thread_rng();
+        if self.len() <= 1 {
+            return;
+        }
 
+        let mut rng = rand::thread_rng();
         while !self.is_sorted() {
             self.shuffle(&mut rng);
         }
@@ -41,8 +44,11 @@ impl<T> Bogosort<T> for Vec<T>
     fn bogosort_timed(&mut self) -> Duration {
         let time = Instant::now();
 
-        let mut rng = rand::thread_rng();
+        if self.len() <= 1 {
+            return time.elapsed();
+        }
 
+        let mut rng = rand::thread_rng();
         while !self.is_sorted() {
             self.shuffle(&mut rng);
         }
@@ -53,8 +59,11 @@ impl<T> Bogosort<T> for Vec<T>
     fn bogosort_stepped(&mut self) -> Vec<Vec<T>> {
         let mut steps = vec![self.clone()];
 
-        let mut rng = rand::thread_rng();
+        if self.len() <= 1 {
+            return steps;
+        }
 
+        let mut rng = rand::thread_rng();
         while !self.is_sorted() {
             self.shuffle(&mut rng);
             steps.push(self.clone());
@@ -68,8 +77,11 @@ impl<T> Bogosort<T> for Vec<T>
 
         let mut steps = vec![self.clone()];
 
-        let mut rng = rand::thread_rng();
+        if self.len() <= 1 {
+            return (steps, time.elapsed());
+        }
 
+        let mut rng = rand::thread_rng();
         while !self.is_sorted() {
             self.shuffle(&mut rng);
             steps.push(self.clone());
@@ -85,8 +97,11 @@ impl<T> Bogosort<T> for Vec<T>
 pub fn bogosort<T>(mut arr: Vec<T>) -> Vec<T> 
     where T: PartialEq + PartialOrd + Clone + Copy,
 {
-    let mut rng = rand::thread_rng();
+    if arr.len() <= 1 {
+        return arr;
+    }
 
+    let mut rng = rand::thread_rng();
     while !arr.is_sorted() {
         arr.shuffle(&mut rng);
     }
@@ -107,7 +122,6 @@ pub fn bogosort_timed<T>(mut arr: Vec<T>) -> (Vec<T>, Duration)
     }
 
     let mut rng = rand::thread_rng();
-
     while !arr.is_sorted() {
         arr.shuffle(&mut rng);
     }
@@ -129,7 +143,6 @@ pub fn bogosort_stepped<T>(mut arr: Vec<T>) -> (Vec<T>, Vec<Vec<T>>)
     }
 
     let mut rng = rand::thread_rng();
-
     while !arr.is_sorted() {
         arr.shuffle(&mut rng);
         steps.push(arr.clone());
@@ -154,7 +167,6 @@ pub fn bogosort_stepped_and_timed<T>(mut arr: Vec<T>) -> (Vec<T>, Vec<Vec<T>>, D
     }
 
     let mut rng = rand::thread_rng();
-
     while !arr.is_sorted() {
         arr.shuffle(&mut rng);
         steps.push(arr.clone());

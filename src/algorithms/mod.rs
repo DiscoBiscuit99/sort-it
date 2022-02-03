@@ -19,3 +19,4 @@ pub use selection_sort::*;
 pub use slowsort::*;
 pub use stooge_sort::*;
 pub use tree_sort::*;
+
