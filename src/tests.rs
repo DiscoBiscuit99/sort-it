@@ -1,5 +1,14 @@
-use crate::algorithms;
-use crate::algorithms::{ Bogosort, BubbleSort, GnomeSort, InsertionSort };
+use crate::algorithms::{
+    self,
+    Bogosort, 
+    BubbleSort,
+    GnomeSort,
+    InsertionSort,
+    MergeSort,
+    SelectionSort,
+    Slowsort,
+    StoogeSort,
+};
 
 #[test]
 fn bogosort() {
@@ -99,18 +108,26 @@ fn insertion_sort() {
 
 #[test]
 fn merge_sort() {
-    let arr_0    = vec![2, 1, 4, 3];
-    let sorted_0 = vec![1, 2, 3, 4];
+    let mut arr_0 = vec![2, 1, 4, 3];
+    let sorted_0  = vec![1, 2, 3, 4];
 
-    let arr_1    = vec![1];
-    let sorted_1 = vec![1];
+    let mut arr_1 = vec![1];
+    let sorted_1  = vec![1];
 
-    let arr_2    = vec![0.1, 3.1, 2.3, 1.2];
-    let sorted_2 = vec![0.1, 1.2, 2.3, 3.1];
+    let mut arr_2 = vec![0.1, 3.1, 2.3, 1.2];
+    let sorted_2  = vec![0.1, 1.2, 2.3, 3.1];
 
     assert_eq!(algorithms::merge_sort(arr_0.clone()), sorted_0);
     assert_eq!(algorithms::merge_sort(arr_1.clone()), sorted_1);
     assert_eq!(algorithms::merge_sort(arr_2.clone()), sorted_2);
+
+    arr_0.merge_sort();
+    arr_1.merge_sort();
+    arr_2.merge_sort();
+
+    assert_eq!(arr_0, sorted_0);
+    assert_eq!(arr_1, sorted_1);
+    assert_eq!(arr_2, sorted_2);
 }
 
 #[test]
@@ -120,50 +137,74 @@ fn quicksort() {
 
 #[test]
 fn selection_sort() {
-    let arr_0    = vec![2, 1, 4, 3];
-    let sorted_0 = vec![1, 2, 3, 4];
+    let mut arr_0 = vec![2, 1, 4, 3];
+    let sorted_0  = vec![1, 2, 3, 4];
 
-    let arr_1    = vec![1];
-    let sorted_1 = vec![1];
+    let mut arr_1 = vec![1];
+    let sorted_1  = vec![1];
 
-    let arr_2    = vec![0.1, 3.1, 2.3, 1.2];
-    let sorted_2 = vec![0.1, 1.2, 2.3, 3.1];
+    let mut arr_2 = vec![0.1, 3.1, 2.3, 1.2];
+    let sorted_2  = vec![0.1, 1.2, 2.3, 3.1];
 
     assert_eq!(algorithms::selection_sort(arr_0.clone()), sorted_0);
     assert_eq!(algorithms::selection_sort(arr_1.clone()), sorted_1);
     assert_eq!(algorithms::selection_sort(arr_2.clone()), sorted_2);
+
+    arr_0.selection_sort();
+    arr_1.selection_sort();
+    arr_2.selection_sort();
+
+    assert_eq!(arr_0, sorted_0);
+    assert_eq!(arr_1, sorted_1);
+    assert_eq!(arr_2, sorted_2);
 }
 
 #[test]
 fn slowsort() {
-    let arr_0    = vec![2, 1, 4, 3];
-    let sorted_0 = vec![1, 2, 3, 4];
+    let mut arr_0 = vec![2, 1, 4, 3];
+    let sorted_0  = vec![1, 2, 3, 4];
 
-    let arr_1    = vec![1];
-    let sorted_1 = vec![1];
+    let mut arr_1 = vec![1];
+    let sorted_1  = vec![1];
 
-    let arr_2    = vec![0.1, 3.1, 2.3, 1.2];
-    let sorted_2 = vec![0.1, 1.2, 2.3, 3.1];
+    let mut arr_2 = vec![0.1, 3.1, 2.3, 1.2];
+    let sorted_2  = vec![0.1, 1.2, 2.3, 3.1];
 
     assert_eq!(algorithms::slowsort(arr_0.clone()), sorted_0);
     assert_eq!(algorithms::slowsort(arr_1.clone()), sorted_1);
     assert_eq!(algorithms::slowsort(arr_2.clone()), sorted_2);
+
+    arr_0.slowsort();
+    arr_1.slowsort();
+    arr_2.slowsort();
+
+    assert_eq!(arr_0, sorted_0);
+    assert_eq!(arr_1, sorted_1);
+    assert_eq!(arr_2, sorted_2);
 }
 
 #[test]
 fn stooge_sort() {
-    let arr_0    = vec![2, 1, 4, 3];
-    let sorted_0 = vec![1, 2, 3, 4];
+    let mut arr_0 = vec![2, 1, 4, 3];
+    let sorted_0  = vec![1, 2, 3, 4];
 
-    let arr_1    = vec![1];
-    let sorted_1 = vec![1];
+    let mut arr_1 = vec![1];
+    let sorted_1  = vec![1];
 
-    let arr_2    = vec![0.1, 3.1, 2.3, 1.2];
-    let sorted_2 = vec![0.1, 1.2, 2.3, 3.1];
+    let mut arr_2 = vec![0.1, 3.1, 2.3, 1.2];
+    let sorted_2  = vec![0.1, 1.2, 2.3, 3.1];
 
     assert_eq!(algorithms::stooge_sort(arr_0.clone()), sorted_0);
     assert_eq!(algorithms::stooge_sort(arr_1.clone()), sorted_1);
     assert_eq!(algorithms::stooge_sort(arr_2.clone()), sorted_2);
+
+    arr_0.stooge_sort();
+    arr_1.stooge_sort();
+    arr_2.stooge_sort();
+
+    assert_eq!(arr_0, sorted_0);
+    assert_eq!(arr_1, sorted_1);
+    assert_eq!(arr_2, sorted_2);
 }
 
 #[test]

@@ -1,5 +1,100 @@
 use std::time::{ Instant, Duration };
 
+/// A trait providing the merge sort method.
+pub trait MergeSort<T: PartialEq + PartialOrd + Clone + Copy> {
+    /// The merge sort algorithm.
+    /// 
+    /// Sorts the `Vec` it is called on.
+    fn merge_sort(&mut self);
+
+    /// The merge sort algorithm but timed.
+    /// 
+    /// Sorts the `Vec` it is called on and returns the `Duration` of the process.
+    fn merge_sort_timed(&mut self) -> Duration;
+
+    /// The merge sort algorithm but stepped.
+    /// 
+    /// Sorts the `Vec` it is called on and returns a `Vec` containing each step of the process.
+    fn merge_sort_stepped(&mut self) -> Vec<Vec<T>>;
+
+    /// The merge sort algorithm but stepped _and_ timed.
+    /// 
+    /// Sorts the `Vec` it is called on and returns a `Vec` containing each step of the process, 
+    /// including the `Duration` of the entire process.
+    fn merge_sort_stepped_and_timed(&mut self) -> (Vec<Vec<T>>, Duration);
+}
+
+/// The trait implementation of the merge sort algorithm.
+impl<T> MergeSort<T> for Vec<T> 
+    where T: PartialEq + PartialOrd + Clone + Copy,
+{
+    fn merge_sort(&mut self) {
+        // If the array only contains one element, it's sorted by default.
+        if self.len() <= 1 {
+            return;
+        }
+
+        // Obtain the right- and left-hand-sides.
+        let rhs = &self[..self.len()/2];
+        let lhs = &self[self.len()/2..];
+
+        *self = merge_rec(rhs.to_vec(), lhs.to_vec());
+    }
+
+    fn merge_sort_timed(&mut self) -> Duration {
+        let time = Instant::now();
+
+        // If the array only contains one element, it's sorted by default.
+        if self.len() <= 1 {
+            return time.elapsed();
+        }
+
+        // Obtain the right- and left-hand-sides.
+        let rhs = &self[..self.len()/2];
+        let lhs = &self[self.len()/2..];
+
+        *self = merge_rec(rhs.to_vec(), lhs.to_vec());
+
+        return time.elapsed();
+    }
+
+    fn merge_sort_stepped(&mut self) -> Vec<Vec<T>> {
+        let mut steps = vec![self.clone()];
+
+        // If the array only contains one element, it's sorted by default.
+        if self.len() <= 1 {
+            return steps;
+        }
+
+        // Obtain the right- and left-hand-sides.
+        let rhs = &self[..self.len()/2];
+        let lhs = &self[self.len()/2..];
+
+        *self = merge_rec_stepped(rhs.to_vec(), lhs.to_vec(), &mut steps);
+
+        return steps;
+    }
+
+    fn merge_sort_stepped_and_timed(&mut self) -> (Vec<Vec<T>>, Duration) {
+        let time = Instant::now();
+
+        let mut steps = vec![self.clone()];
+
+        // If the array only contains one element, it's sorted by default.
+        if self.len() <= 1 {
+            return (steps, time.elapsed());
+        }
+
+        // Obtain the right- and left-hand-sides.
+        let rhs = &self[..self.len()/2];
+        let lhs = &self[self.len()/2..];
+
+        *self = merge_rec_stepped(rhs.to_vec(), lhs.to_vec(), &mut steps);
+
+        (steps, time.elapsed())
+    }
+}
+
 /// The merge sort algorithm.
 /// 
 /// Sorts the given `Vec` and returns the result.
