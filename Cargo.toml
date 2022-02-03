@@ -1,11 +1,12 @@
 [package]
 name = "sort-it"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Provides various sorting algorithms"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/discobiscuit99/sort-it"
 repository = "https://github.com/discobiscuit99/sort-it"
+documentation = "https://docs.rs/sort-it"
 readme = "README.md"
 keywords = ["sorting", "algorithms"]
 exclude = [
