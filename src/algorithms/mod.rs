@@ -20,3 +20,26 @@ pub use slowsort::*;
 pub use stooge_sort::*;
 pub use tree_sort::*;
 
+/// A trait providing the `is_sorted` method on `Vec`'s implementing `T`.
+pub trait IsSorted<T: PartialEq + PartialOrd + Clone + Copy> {
+    /// Returns whether the given `Vec` is sorted or not.
+    fn is_sorted(&self) -> bool;
+}
+
+/// The trait implementation providing the `is_sorted` method.
+impl<T> IsSorted<T> for Vec<T>
+    where T: PartialEq + PartialOrd + Clone + Copy,
+{
+    fn is_sorted(&self) -> bool {
+        let mut is_sorted = true;
+
+        for i in 1..self.len() {
+            if self[i] < self[i-1] {
+                is_sorted = false;
+            }
+        }
+
+        return is_sorted;
+    }
+}
+

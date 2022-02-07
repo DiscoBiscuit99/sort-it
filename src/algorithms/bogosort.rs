@@ -1,5 +1,6 @@
 use std::time::{ Instant, Duration };
 use rand::prelude::*;
+use super::IsSorted;
 
 /// A trait providing the bogosort method.
 pub trait Bogosort<T: PartialEq + PartialOrd + Clone + Copy> {
@@ -174,4 +175,3 @@ pub fn bogosort_stepped_and_timed<T>(mut arr: Vec<T>) -> (Vec<T>, Vec<Vec<T>>, D
 
     (arr, steps, time.elapsed())
 }
-

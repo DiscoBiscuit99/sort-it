@@ -33,11 +33,10 @@ impl<T> InsertionSort<T> for Vec<T>
             return;
         }
 
-        for i in 0..self.len() {
-            let mut j = i;
-            while j > 0 && self[j] < self[j-1] {
-                self.swap(j, j-1);
-                j -= 1;
+        for mut i in 0..self.len() {
+            while i > 0 && self[i] < self[i-1] {
+                self.swap(i, i-1);
+                i -= 1;
             }
         }
     }

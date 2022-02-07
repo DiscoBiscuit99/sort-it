@@ -53,8 +53,6 @@
 //! 
 //! Have fun sorting things in different ways.
 
-#![feature(is_sorted)]
-
 #[cfg(test)]
 mod tests;
 

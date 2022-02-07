@@ -1,6 +1,6 @@
 [package]
 name = "sort-it"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 description = "Provides various sorting algorithms"
 license = "MIT OR Apache-2.0"
